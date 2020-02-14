@@ -407,7 +407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 172639523}
-  toggleAngle: 30
+  toggleAngle: 15
   speed: 3
   move: 0
 --- !u!114 &374990788
