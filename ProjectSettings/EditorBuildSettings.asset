@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/MyTial/TrialScene.unity
+    guid: b82fcfda5043c6d4eb3f05b1280136ab
   m_configObjects: {}
