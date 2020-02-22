@@ -20,7 +20,9 @@ public class DoorScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (atDoor == true && Input.GetMouseButtonDown(0)) // If the person is at the door and inputs a button press, the door will open/close
+
+        Touch t = Input.GetTouch(0);
+        if (atDoor == true && t.phase == TouchPhase.Began) // If the person is at the door and inputs a button press, the door will open/close
         {
             animator.SetTrigger("OpenDoor"); // Trigger for door animation
         }
