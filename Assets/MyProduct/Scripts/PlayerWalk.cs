@@ -12,17 +12,18 @@ public class PlayerWalk : MonoBehaviour
         while (i < Input.touchCount)
         {
             Touch t = Input.GetTouch(i);
-            if (t.phase == TouchPhase.Stationary)
-            {
-                if (t.position.x > Screen.width / 2)
-                {
-                    playerMove();
-                }
-            }
-            else if (t.phase == TouchPhase.Ended)
-            {
-                playerStop();
-            }
+            Debug.Log("Player Move...");
+            //if (t.phase == TouchPhase.Stationary)
+            //{
+            //    if (t.position.x > Screen.width / 2)
+            //    {
+            //        playerMove();
+            //    }
+            //}
+            //else if (t.phase == TouchPhase.Ended)
+            //{
+            //    playerStop();
+            //}
         }
     }
 
