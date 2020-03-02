@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/MyProduct/Scenes/Main.unity
-    guid: 8cb4b6e55cc49b44582b12acc91f90ad
+    path: Assets/TirgamesAssets/SchoolScene/Scenes/SchoolSceneDayMobile.unity
+    guid: 7f50d77e59611894db84a826cccaede4
   m_configObjects: {}
