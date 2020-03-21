@@ -9,6 +9,7 @@ public class LookWalk : MonoBehaviour
     public float toggleAngle = 30.0f;
     public float speed = 3.0f;
     public bool move;
+    public bool canMove;
 
     private CharacterController cc;
 
@@ -16,12 +17,13 @@ public class LookWalk : MonoBehaviour
     void Start()
     {
         cc = GetComponent<CharacterController>();
+        canMove = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Camera.eulerAngles.x >= toggleAngle && Camera.eulerAngles.x < 90.0f)
+        if (Camera.eulerAngles.x >= toggleAngle && Camera.eulerAngles.x < 90.0f && canMove == true)
         {
             move = true;
         }
@@ -30,7 +32,7 @@ public class LookWalk : MonoBehaviour
             move = false;
         }
 
-        if (move)
+        if (move && canMove)
         {
             Vector3 forward = Camera.TransformDirection(Vector3.forward);
             cc.SimpleMove(forward * speed);
