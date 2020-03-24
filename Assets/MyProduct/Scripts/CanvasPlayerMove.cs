@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class CanvasPlayerMove : MonoBehaviour
 {
-    public GameObject playerObject;
+    [SerializeField] private LookWalk moveScript;
     public void PlayerMove()
     {
-        playerObject = GameObject.Find("Player");
-        Debug.Log(playerObject);
-        //moveScript.canMove = true;
-        
+        moveScript.canMove = true;
     }
 }

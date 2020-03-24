@@ -6,14 +6,16 @@ using UnityEngine.UI;
 public class ShowCanvas : MonoBehaviour
 {
     [SerializeField] private Canvas customCanvas;
-
+    public int scriptNumber = 0;
+    
     void OnTriggerEnter(Collider other)
     {
+
         if(other.CompareTag("Player"))
         {
-            //LookWalk moveScript = other.GetComponent<LookWalk>();
+            LookWalk moveScript = other.GetComponent<LookWalk>();
+            moveScript.canMove = false;
             customCanvas.enabled = true;
-            //moveScript.canMove = false;
         }
     }
     void OnTriggerExit(Collider other)
