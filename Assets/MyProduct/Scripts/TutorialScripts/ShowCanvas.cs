@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ShowCanvas : MonoBehaviour
 {
     [SerializeField] private Canvas customCanvas;
-    public int scriptNumber = 0;
+    //public int scriptNumber = 0;
     
     void OnTriggerEnter(Collider other)
     {
