@@ -21,7 +21,7 @@ public class Tutorial : MonoBehaviour
     {
         if(buttonPressed == false)
         { 
-            myText.text = "Instuctions \n 1. Look Donw to walk \n 2. Press the Button to interact with the cube. \n\n Objective \n Convert all the red cubes to green by interacting with them.\n Total interactions : " + interactionCount.ToString() + "/8";
+            myText.text = "Instuctions \n 1. Look Down to walk \n 2. Press the Button to interact with the cube. \n\n Objective \n Convert all the red cubes to green by interacting with them.\n Total interactions : " + interactionCount.ToString() + "/8";
         }else if (buttonPressed == true && interactionCount == 8)
         {
             myText.text = "Congratulations!!! \n you have completed the tutorial. \n You may now pass though the door.";
