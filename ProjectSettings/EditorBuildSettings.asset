@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TirgamesAssets/SchoolScene/Scenes/SchoolSceneDayMobile.unity
     guid: 7f50d77e59611894db84a826cccaede4
+  - enabled: 1
+    path: Assets/MyProduct/Scenes/TutorialScene.unity
+    guid: a861204e0af757c4b82bcf150745f895
   m_configObjects: {}
