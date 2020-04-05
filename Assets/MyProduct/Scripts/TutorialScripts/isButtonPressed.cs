@@ -7,6 +7,6 @@ public class isButtonPressed : MonoBehaviour
     [SerializeField] private Tutorial tutorialScript;
     public void ButtonisPressed()
     {
-        tutorialScript.buttonPressed = true;
+        tutorialScript.buttonPressCount += 1;
     }
 }
