@@ -15,7 +15,7 @@ public class ShowCanvas : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             LookWalk moveScript = other.GetComponent<LookWalk>();
-            moveScript.canMove = false;
+            //moveScript.canMove = false;
             customCanvas.enabled = true;
         }
     }

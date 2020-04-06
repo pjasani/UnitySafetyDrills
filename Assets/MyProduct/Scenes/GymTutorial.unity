@@ -36,10 +36,10 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 1024
   m_ReflectionBounces: 2
-  m_ReflectionIntensity: 0.849
+  m_ReflectionIntensity: 0.9
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2095079458}
-  m_IndirectSpecularColor: {r: 0.7161684, g: 0.7190511, b: 0.7013914, a: 0.849}
+  m_IndirectSpecularColor: {r: 0.73514247, g: 0.73809606, b: 0.7200018, a: 0.9}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000000, guid: 6f62765fe7e999d4d885fca41a8ac877,
+  m_LightingDataAsset: {fileID: 112000000, guid: 092c6c4c684dfd848b518d756656c6fc,
     type: 2}
   m_UseShadowmask: 0
 --- !u!196 &4
@@ -4032,7 +4032,7 @@ ReflectionProbe:
   m_Mode: 0
   m_RefreshMode: 0
   m_TimeSlicingMode: 0
-  m_Resolution: 256
+  m_Resolution: 1024
   m_UpdateFrequency: 0
   m_BoxSize: {x: 48.543163, y: 9.881428, z: 60.71319}
   m_BoxOffset: {x: 5.055649, y: 1.7133026, z: -2.9138842}
@@ -4586,7 +4586,7 @@ ReflectionProbe:
   m_Mode: 0
   m_RefreshMode: 0
   m_TimeSlicingMode: 0
-  m_Resolution: 256
+  m_Resolution: 1024
   m_UpdateFrequency: 0
   m_BoxSize: {x: 19.713818, y: 8.340472, z: 34.297157}
   m_BoxOffset: {x: -0.5450516, y: 0.9561789, z: -1.2087471}
@@ -7162,7 +7162,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119425697}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.542815, y: 2.67, z: 9.110983}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1159186840}
@@ -12770,7 +12770,7 @@ ReflectionProbe:
   m_Mode: 0
   m_RefreshMode: 0
   m_TimeSlicingMode: 0
-  m_Resolution: 256
+  m_Resolution: 1024
   m_UpdateFrequency: 0
   m_BoxSize: {x: 6.8818817, y: 3.4704227, z: 3.8438492}
   m_BoxOffset: {x: -0.14944458, y: -0.0129003525, z: 0.02709961}
@@ -13291,7 +13291,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 0.9844831, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.75
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
