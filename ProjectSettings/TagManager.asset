@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Waypoint1
+  - Waypoint2
+  - Waypoint3
   layers:
   - Default
   - TransparentFX
