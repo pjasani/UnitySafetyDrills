@@ -11,14 +11,17 @@ public class Waypoint : MonoBehaviour
 
     private Transform player;
     private Text distanceText;
-    private float distance;
+    private float distance; // The distance from the player to a waypoint
 
-    private int count = 1;
+    private bool waypointReached = false; // Whether the player has reached the current waypoint or not
+    private bool nextWaypoint = false; // Enable/disable the display of the next waypoint
+    private bool doNotUpdate = false; // Prevents the last waypoint from being enabled from the first floor
 
     // Moves the location of the waypoint to be slightly above the object it is attached to
-    private Vector3 waypointPosOffset = new Vector3(0, 3.5f, 0); 
+    private Vector3 waypointPosOffset = new Vector3(0, 1.5f, 0); 
 
-    // Allows the waypoint marker to be a dynamic prefab. Drag and drop it onto Game Objects to add it as a component
+    // Allows the waypoint marker to be a dynamic prefab. Drag and drop the script on to a Game Object and then drag and drop
+    // the Waypoint prefab on to the prefab tab in the Waypoint Script component box
     void Start()
     {
         var canvas = GameObject.Find("Waypoints").transform;
@@ -27,6 +30,21 @@ public class Waypoint : MonoBehaviour
         distanceText = waypoint.GetComponentInChildren<Text>();
 
         player = GameObject.Find("Player").transform;
+
+        // COMMENT OUT TO TURN ON ALL WAYPOINTS FOR TESTING
+        waypoint.gameObject.SetActive(false);
+    }
+
+    // Mark that the player has reached the current waypoint once they make it to the designated location
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            if (distance < 3)
+                waypointReached = true;
+
+            Debug.Log("waypointReached " + waypointReached);
+        }
     }
 
     // Update is called once per frame
@@ -36,33 +54,58 @@ public class Waypoint : MonoBehaviour
         var screenPos = Camera.main.WorldToScreenPoint(transform.position + waypointPosOffset);
         waypoint.position = screenPos;
 
-        // Gets rid of the waypoint marker if it's position is behind the player 
-        waypoint.gameObject.SetActive(screenPos.z > 0);
-
         // Calculates how far the player is from a waypoint marker and displays it as text rounded to the nearest integer below each one
         distance = Vector3.Distance(player.position, transform.position);
         distanceText.text = Vector3.Distance(player.position, transform.position).ToString("0") + "m";
 
-        
-        // NOTE: This method for enabling/disabling waypoints will give continuous errors while it is running 
-        // because I am removing waypoints after the player gets to its location and the code continues to try
-        // and reference them. This shouldn't cause any problems however.
+        // HERE FOR TESTING
+        //waypoint.gameObject.SetActive(screenPos.z > 0); // Gets rid of the waypoint marker if it's position is behind the player
 
-        // When player is close to the waypoint, get rid of it
-        if (distance < 5)
+        // Check the distance from the starting location to the first waypoint and enable it
+        if (waypointReached == false & (Mathf.RoundToInt(distance)) == 8) 
         {
-            Destroy(waypoint.gameObject);
+            nextWaypoint = true;
         }
-        // When the waypoint is a certain distance away from the player, disable it
-        else if (distance >= 30)
+
+        // Check the distance from the first waypoint to the second waypoint and enable it and also distance from second
+        // waypoint to the third waypoint
+        else if (doNotUpdate == false & waypointReached == false & (Mathf.RoundToInt(distance)) == 46) 
         {
-            waypoint.gameObject.SetActive(false);
+            nextWaypoint = true;
         }
-        // Otherwise, when player gets in range of a waypoint, enable it
-        else
+
+        // Check the distance from the third waypoint to the last waypoint and enable it
+        else if (doNotUpdate == false & waypointReached == false & (Mathf.RoundToInt(distance)) == 36)
+        {
+            nextWaypoint = true;
+        }
+
+        // This is here because when the player is going down the first floor hallway, the distance that
+        // they can be from the last waypoint is 46m or 47m. Both of these distances are used to trigger
+        // the 2nd and 3rd waypoints so when the last waypoint is in this range, its visibility gets 
+        // triggered early.
+        else if ((Mathf.RoundToInt(distance)) > 50 | (Mathf.RoundToInt(distance)) == 18) // Enable doNotUpdate on last and 2nd to last waypoints when player makes it to first waypoint
+        {
+            doNotUpdate = true;
+        }
+        // Allows the 2nd to last waypoint to be updated once it passes 36m from player on way to 2nd waypoint
+        else if ((Mathf.RoundToInt(distance)) == 37)
+        {
+            doNotUpdate = false;
+        }
+
+        // While nextWaypoint is enabled, keep displaying the next waypoint's location
+        if (nextWaypoint == true)
         {
             waypoint.gameObject.SetActive(true);
-            waypoint.gameObject.SetActive(screenPos.z > 0); // Gets rid of the waypoint marker if it's position is behind the player 
+            waypoint.gameObject.SetActive(screenPos.z > 0); // Gets rid of the waypoint marker if it's position is behind the player
+
+            if (waypointReached == true)
+                nextWaypoint = false;
         }
+
+        // Once a waypoint is reached disable it's visibility
+        if (waypointReached == true)
+            waypoint.gameObject.SetActive(false);
     }
 }
