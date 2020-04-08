@@ -31,6 +31,7 @@ public class Waypoint : MonoBehaviour
 
         player = GameObject.Find("Player").transform;
 
+        // COMMENT OUT TO TURN ON ALL WAYPOINTS FOR TESTING
         waypoint.gameObject.SetActive(false);
     }
 
@@ -61,7 +62,7 @@ public class Waypoint : MonoBehaviour
         //waypoint.gameObject.SetActive(screenPos.z > 0); // Gets rid of the waypoint marker if it's position is behind the player
 
         // Check the distance from the starting location to the first waypoint and enable it
-        if (waypointReached == false & (Mathf.RoundToInt(distance)) == 9) 
+        if (waypointReached == false & (Mathf.RoundToInt(distance)) == 8) 
         {
             nextWaypoint = true;
         }
@@ -74,7 +75,7 @@ public class Waypoint : MonoBehaviour
         }
 
         // Check the distance from the third waypoint to the last waypoint and enable it
-        else if (waypointReached == false & (Mathf.RoundToInt(distance)) == 36)
+        else if (doNotUpdate == false & waypointReached == false & (Mathf.RoundToInt(distance)) == 36)
         {
             nextWaypoint = true;
         }
@@ -83,9 +84,14 @@ public class Waypoint : MonoBehaviour
         // they can be from the last waypoint is 46m or 47m. Both of these distances are used to trigger
         // the 2nd and 3rd waypoints so when the last waypoint is in this range, its visibility gets 
         // triggered early.
-        else if ((Mathf.RoundToInt(distance)) > 50) // Enable doNotUpdate on last waypoint when player makes it to first waypoint
+        else if ((Mathf.RoundToInt(distance)) > 50 | (Mathf.RoundToInt(distance)) == 18) // Enable doNotUpdate on last and 2nd to last waypoints when player makes it to first waypoint
         {
             doNotUpdate = true;
+        }
+        // Allows the 2nd to last waypoint to be updated once it passes 36m from player on way to 2nd waypoint
+        else if ((Mathf.RoundToInt(distance)) == 37)
+        {
+            doNotUpdate = false;
         }
 
         // While nextWaypoint is enabled, keep displaying the next waypoint's location
