@@ -62,7 +62,7 @@ public class Waypoint : MonoBehaviour
         //waypoint.gameObject.SetActive(screenPos.z > 0); // Gets rid of the waypoint marker if it's position is behind the player
 
         // Check the distance from the starting location to the first waypoint and enable it
-        if (waypointReached == false & (Mathf.RoundToInt(distance)) == 8) 
+        if (waypointReached == false & (Mathf.RoundToInt(distance)) == 9) 
         {
             nextWaypoint = true;
         }

@@ -22,7 +22,7 @@ public class CanvasStartRoom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(myCanvas.enabled);
+        //Debug.Log(myCanvas.enabled);
         if (myCanvas.enabled)
         {
             if (buttonPressCount == 0 && prevButton == 0)
