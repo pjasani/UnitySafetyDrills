@@ -14,7 +14,7 @@ public class DoorScript : MonoBehaviour {
     void Start()
     {
         animator = GetComponent<Animator>(); // Initalize the door animation object
-        Debug.Log("animator: " + animator);
+        //Debug.Log("animator: " + animator);
         instructions.SetActive(false); // Toggle the visibility of the popup to off initially
     }
 
@@ -36,7 +36,7 @@ public class DoorScript : MonoBehaviour {
         // Here for Mouse + Keyboard testing
         else if (atDoor == true & Input.GetMouseButtonDown(0)) // If the person is at the door and inputs a button press, the door will open/close
         {
-            Debug.Log("Door should be opened");
+            //Debug.Log("Door should be opened");
             animator.SetTrigger("OpenDoor"); // Trigger for door animation
         }
     }
@@ -46,7 +46,7 @@ public class DoorScript : MonoBehaviour {
     {
         if (other.tag == "Player") { // Check if the user has collided with the box collider trigger
             atDoor = true;
-            Debug.Log("atDoor: " + atDoor);
+            //Debug.Log("atDoor: " + atDoor);
             instructions.SetActive(true); // Toggle the visibility of the popup to on
             //animator.SetTrigger("OpenDoor"); // Used to trigger door animation without a button input
         }

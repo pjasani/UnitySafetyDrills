@@ -40,7 +40,7 @@ public class Waypoint : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            if (distance < 3)
+            //if (distance <= 4)
                 waypointReached = true;
 
             Debug.Log("waypointReached " + waypointReached);
@@ -61,6 +61,10 @@ public class Waypoint : MonoBehaviour
         // HERE FOR TESTING
         //waypoint.gameObject.SetActive(screenPos.z > 0); // Gets rid of the waypoint marker if it's position is behind the player
 
+        // Once a waypoint is reached disable it's visibility
+        if (waypointReached == true)
+            waypoint.gameObject.SetActive(false);
+
         // Check the distance from the starting location to the first waypoint and enable it
         if (waypointReached == false & (Mathf.RoundToInt(distance)) == 9) 
         {
@@ -74,7 +78,8 @@ public class Waypoint : MonoBehaviour
             nextWaypoint = true;
         }
 
-        // Check the distance from the third waypoint to the last waypoint and enable it
+        // Check the distance from the third waypoint to the fourth waypoint and enable it
+        // Once player steps outside after reaching fourth waypoint, last waypoint should appear
         else if (doNotUpdate == false & waypointReached == false & (Mathf.RoundToInt(distance)) == 36)
         {
             nextWaypoint = true;
@@ -103,9 +108,5 @@ public class Waypoint : MonoBehaviour
             if (waypointReached == true)
                 nextWaypoint = false;
         }
-
-        // Once a waypoint is reached disable it's visibility
-        if (waypointReached == true)
-            waypoint.gameObject.SetActive(false);
     }
 }
