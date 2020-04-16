@@ -10,11 +10,15 @@ public class DoorScript : MonoBehaviour {
 
     public GameObject instructions; // Pop up text to interact with door
 
+    //public AudioSource source;
+    //public AudioClip door;
+
     // Used for initialization
     void Start()
     {
         animator = GetComponent<Animator>(); // Initalize the door animation object
         //Debug.Log("animator: " + animator);
+        //source = GetComponent<AudioSource>();
         instructions.SetActive(false); // Toggle the visibility of the popup to off initially
     }
 
@@ -29,6 +33,7 @@ public class DoorScript : MonoBehaviour {
                 if (atDoor == true && t.phase == TouchPhase.Began) // If the person is at the door and inputs a button press, the door will open/close
                 {
                     animator.SetTrigger("OpenDoor"); // Trigger for door animation
+                    //source.Play();
                 }
             }
         }
@@ -38,6 +43,7 @@ public class DoorScript : MonoBehaviour {
         {
             //Debug.Log("Door should be opened");
             animator.SetTrigger("OpenDoor"); // Trigger for door animation
+            //source.Play();
         }
     }
 

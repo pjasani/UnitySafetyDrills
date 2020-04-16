@@ -9,6 +9,8 @@ public class LookWalk : MonoBehaviour
     public float toggleAngle = 30.0f;
     public float speed = 3.0f;
     public bool move;
+    public AudioSource source;
+    public AudioClip footsteps;
    // public bool canMove;
 
     private CharacterController cc;
@@ -18,6 +20,11 @@ public class LookWalk : MonoBehaviour
     {
         cc = GetComponent<CharacterController>();
         //canMove = true;
+    }
+
+    public void Awake()
+    {
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -30,6 +37,7 @@ public class LookWalk : MonoBehaviour
         else
         {
             move = false;
+            source.Play();
         }
 
         if (move)

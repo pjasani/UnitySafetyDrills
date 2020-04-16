@@ -10,9 +10,12 @@ public class initial : MonoBehaviour
     public Canvas myCanvas;
     public int init_continueCount = 0;
     private int prevButton = 0;
+    public  AudioSource source;
+    public AudioClip alarm;
 void Start()
     {
         canvasText = GetComponent<TextMeshProUGUI>();
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -39,6 +42,7 @@ void Start()
             if (init_continueCount == 3 && prevButton == 3)
             {
                 myCanvas.enabled = false;
+                source.Play();
             }
         }
     }
