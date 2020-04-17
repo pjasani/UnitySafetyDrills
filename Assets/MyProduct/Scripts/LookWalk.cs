@@ -19,6 +19,7 @@ public class LookWalk : MonoBehaviour
     void Start()
     {
         cc = GetComponent<CharacterController>();
+        move = true;
         //canMove = true;
     }
 
@@ -38,6 +39,7 @@ public class LookWalk : MonoBehaviour
         {
             move = false;
             source.Play();
+            //FindObjectOfType<AudioManager>().Play("Footsteps");
         }
 
         if (move)

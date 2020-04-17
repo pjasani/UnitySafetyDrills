@@ -6,21 +6,23 @@ using TMPro;
 
 public class initial : MonoBehaviour
 {
+    //public  AudioSource source;
+    //public AudioClip alarm;
     public TextMeshProUGUI canvasText;
     public Canvas myCanvas;
     public int init_continueCount = 0;
     private int prevButton = 0;
-    public  AudioSource source;
-    public AudioClip alarm;
+    
 void Start()
     {
         canvasText = GetComponent<TextMeshProUGUI>();
-        source = GetComponent<AudioSource>();
+        // source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (myCanvas.enabled)
         {
 
@@ -42,7 +44,7 @@ void Start()
             if (init_continueCount == 3 && prevButton == 3)
             {
                 myCanvas.enabled = false;
-                source.Play();
+                //source.Play();
             }
         }
     }
